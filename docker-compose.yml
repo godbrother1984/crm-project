@@ -22,6 +22,10 @@ services:
     restart: unless-stopped
     ports:
       - "8766:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crm-frontend.rule=Host(`w6582fhc977otozkig5o47t9.58.136.57.50.sslip.io`)"
+      - "traefik.http.services.crm-frontend.loadbalancer.server.port=80"
     depends_on:
       - backend
 
